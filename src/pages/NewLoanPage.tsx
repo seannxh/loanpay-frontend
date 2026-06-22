@@ -16,6 +16,7 @@ export function NewLoanPage() {
 
   const [name, setName] = useState('')
   const [category, setCategory] = useState<string>('Other')
+  const [bank, setBank] = useState('')
   const [purchaseAmount, setPurchaseAmount] = useState('1000')
   const [apr, setApr] = useState('12')
   const [installments, setInstallments] = useState('12')
@@ -30,6 +31,7 @@ export function NewLoanPage() {
       purchaseAmount: Number(purchaseAmount),
       annualPercentageRate: Number(apr),
       numberOfInstallments: Number(installments),
+      startDate: startDate || null,
     }
   }
 
@@ -53,8 +55,8 @@ export function NewLoanPage() {
       const loan = await createLoan({
         name,
         category,
+        bank,
         ...loanRequest(),
-        startDate: startDate || null,
       })
       navigate(`/loans/${loan.id}`, { replace: true })
     } catch (err) {
@@ -92,6 +94,15 @@ export function NewLoanPage() {
                 ))}
               </select>
             </label>
+            <label>
+              Bank (optional)
+              <input
+                type="text"
+                placeholder="e.g. Chase"
+                value={bank}
+                onChange={(e) => setBank(e.target.value)}
+              />
+            </label>
           </div>
 
           <div className="field-grid">
@@ -122,7 +133,7 @@ export function NewLoanPage() {
               <input
                 type="number"
                 min="1"
-                max="60"
+                max="600"
                 step="1"
                 required
                 value={installments}

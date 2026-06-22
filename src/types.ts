@@ -34,6 +34,7 @@ export interface LoanRequest {
   purchaseAmount: number
   annualPercentageRate: number
   numberOfInstallments: number
+  startDate?: string | null // ISO date; omit for "starts today"
 }
 
 export interface Installment {
@@ -60,6 +61,7 @@ export interface LoanScheduleRepayment {
 export interface CreateLoanRequest {
   name: string
   category: string
+  bank: string
   purchaseAmount: number
   annualPercentageRate: number
   numberOfInstallments: number
@@ -70,6 +72,7 @@ export interface LoanSummary {
   id: string
   name: string
   category: string
+  bank: string
   purchaseAmount: Money
   apr: Money
   numberOfInstallments: number
@@ -87,6 +90,7 @@ export interface LoanDetail {
   id: string
   name: string
   category: string
+  bank: string
   purchaseAmount: Money
   apr: Money
   numberOfInstallments: number

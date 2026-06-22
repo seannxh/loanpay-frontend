@@ -146,7 +146,7 @@ export async function getLoan(loanId: string): Promise<LoanDetail> {
 
 export async function updateLoan(
   loanId: string,
-  changes: { name?: string; category?: string },
+  changes: { name?: string; category?: string; bank?: string },
 ): Promise<LoanDetail> {
   return handle(await request(`/loans/${loanId}`, { method: 'PATCH', body: changes }))
 }

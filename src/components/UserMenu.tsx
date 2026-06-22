@@ -29,8 +29,13 @@ export function UserMenu() {
     }
   }, [open])
 
-  // Close when navigating.
-  useEffect(() => setOpen(false), [location.pathname])
+  // Close when navigating (adjusted during render per
+  // https://react.dev/learn/you-might-not-need-an-effect).
+  const [prevPathname, setPrevPathname] = useState(location.pathname)
+  if (location.pathname !== prevPathname) {
+    setPrevPathname(location.pathname)
+    setOpen(false)
+  }
 
   return (
     <div className="user-menu" ref={ref}>

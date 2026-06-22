@@ -25,12 +25,14 @@ export function LoanDetailPage() {
   const [editing, setEditing] = useState(false)
   const [editName, setEditName] = useState('')
   const [editCategory, setEditCategory] = useState('Other')
+  const [editBank, setEditBank] = useState('')
   const [savingEdit, setSavingEdit] = useState(false)
 
   function startEdit() {
     if (!loan) return
     setEditName(loan.name)
     setEditCategory(loan.category)
+    setEditBank(loan.bank)
     setEditing(true)
   }
 
@@ -40,7 +42,7 @@ export function LoanDetailPage() {
     clear()
     setSavingEdit(true)
     try {
-      setLoan(await updateLoan(loanId, { name: editName, category: editCategory }))
+      setLoan(await updateLoan(loanId, { name: editName, category: editCategory, bank: editBank }))
       setEditing(false)
     } catch (err) {
       handle(err, 'Failed to update loan')
@@ -150,6 +152,15 @@ export function LoanDetailPage() {
                     ))}
                   </select>
                 </label>
+                <label>
+                  Bank (optional)
+                  <input
+                    type="text"
+                    placeholder="e.g. Chase"
+                    value={editBank}
+                    onChange={(e) => setEditBank(e.target.value)}
+                  />
+                </label>
               </div>
               <div className="row">
                 <button type="submit" disabled={savingEdit}>
@@ -170,6 +181,7 @@ export function LoanDetailPage() {
               <div className="title-row">
                 <h1>{loan.name}</h1>
                 <span className="category-chip">{loan.category}</span>
+                {loan.bank && <span className="category-chip">{loan.bank}</span>}
                 <span className="apr-chip">{Number(loan.apr)}% APR</span>
               </div>
               <div className="row">

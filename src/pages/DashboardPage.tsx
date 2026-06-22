@@ -10,10 +10,20 @@ import type { LoanSummary } from '@/types'
 
 type SortKey = 'newest' | 'name' | 'category'
 
+const PAGE_SIZE = 8
+
 export function DashboardPage() {
   const { error, offline, handle, clear } = useApiError()
   const [loans, setLoans] = useState<LoanSummary[] | null>(null)
   const [sort, setSort] = useState<SortKey>('newest')
+  const [page, setPage] = useState(1)
+  const [prevSort, setPrevSort] = useState(sort)
+  // Re-sorting brings the user back to the top of the list (adjusted during
+  // render per https://react.dev/learn/you-might-not-need-an-effect).
+  if (sort !== prevSort) {
+    setPrevSort(sort)
+    setPage(1)
+  }
 
   useEffect(() => {
     let active = true
@@ -40,6 +50,10 @@ export function DashboardPage() {
       copy.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name))
     return copy
   }, [loans, sort])
+
+  const totalPages = Math.max(1, Math.ceil((sorted?.length ?? 0) / PAGE_SIZE))
+  const currentPage = Math.min(page, totalPages)
+  const paged = sorted?.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE) ?? sorted
 
   // Aggregate totals across all loans for the overview bar.
   const overview = useMemo(() => {
@@ -104,7 +118,7 @@ export function DashboardPage() {
 
       {sorted && sorted.length > 0 && (
         <div className="loan-grid">
-          {sorted.map((loan) => {
+          {paged!.map((loan) => {
             const pct = loan.totalCount
               ? Math.round((loan.paidCount / loan.totalCount) * 100)
               : 0
@@ -135,6 +149,30 @@ export function DashboardPage() {
               </Link>
             )
           })}
+        </div>
+      )}
+
+      {totalPages > 1 && (
+        <div className="row pagination">
+          <button
+            type="button"
+            className="secondary"
+            onClick={() => setPage(currentPage - 1)}
+            disabled={currentPage <= 1}
+          >
+            Previous
+          </button>
+          <span className="muted small">
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            type="button"
+            className="secondary"
+            onClick={() => setPage(currentPage + 1)}
+            disabled={currentPage >= totalPages}
+          >
+            Next
+          </button>
         </div>
       )}
     </div>
