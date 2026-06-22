@@ -136,6 +136,17 @@
   justify-content: space-between;
   gap: 1rem;
 }
+.pagination {
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+.pagination button {
+  min-width: 110px;
+}
 
 h1 {
   margin: 0;
