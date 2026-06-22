@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
-import { resetPassword } from '../api'
-import { useApiError } from '../useApiError'
-import { ErrorBanner } from '../components/ErrorBanner'
-import { PasswordChecklist } from '../components/PasswordChecklist'
-import { passwordValid } from '../password'
+import { resetPassword } from '@/api/client'
+import { useApiError } from '@/hooks/useApiError'
+import { ErrorBanner } from '@/components/ErrorBanner'
+import { PasswordChecklist } from '@/components/PasswordChecklist'
+import { passwordValid } from '@/lib/password'
 
 export function ResetPasswordPage() {
   const [params] = useSearchParams()

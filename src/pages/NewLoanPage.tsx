@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { calculateLoan, createLoan } from '../api'
-import { useApiError } from '../useApiError'
-import { ErrorBanner } from '../components/ErrorBanner'
-import { ScheduleTable } from '../components/ScheduleTable'
-import { StatTile } from '../components/StatTile'
-import { Calculator, ChartDown, Coins, Wallet } from '../components/icons'
-import { LOAN_CATEGORIES } from '../categories'
-import { money } from '../format'
-import type { LoanScheduleRepayment } from '../types'
+import { calculateLoan, createLoan } from '@/api/client'
+import { useApiError } from '@/hooks/useApiError'
+import { ErrorBanner } from '@/components/ErrorBanner'
+import { ScheduleTable } from '@/components/ScheduleTable'
+import { StatTile } from '@/components/StatTile'
+import { Calculator, ChartDown, Coins, Wallet } from '@/components/icons'
+import { LOAN_CATEGORIES } from '@/lib/categories'
+import { money } from '@/lib/format'
+import type { LoanScheduleRepayment } from '@/types'
 
 export function NewLoanPage() {
   const navigate = useNavigate()

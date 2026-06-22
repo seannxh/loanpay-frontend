@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../auth/AuthContext'
-import { useApiError } from '../useApiError'
-import { ErrorBanner } from '../components/ErrorBanner'
-import { PasswordChecklist } from '../components/PasswordChecklist'
-import { passwordValid } from '../password'
+import { useAuth } from '@/context/AuthContext'
+import { useApiError } from '@/hooks/useApiError'
+import { ErrorBanner } from '@/components/ErrorBanner'
+import { PasswordChecklist } from '@/components/PasswordChecklist'
+import { passwordValid } from '@/lib/password'
 
 export function RegisterPage() {
   const { register } = useAuth()

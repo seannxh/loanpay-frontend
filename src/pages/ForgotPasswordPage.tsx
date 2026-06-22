@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { forgotPassword } from '../api'
-import { useApiError } from '../useApiError'
-import { ErrorBanner } from '../components/ErrorBanner'
+import { forgotPassword } from '@/api/client'
+import { useApiError } from '@/hooks/useApiError'
+import { ErrorBanner } from '@/components/ErrorBanner'
 
 export function ForgotPasswordPage() {
   const { error, offline, handle, clear } = useApiError()

@@ -1,4 +1,4 @@
-import { PASSWORD_RULES } from '../password'
+import { PASSWORD_RULES } from '@/lib/password'
 
 export function PasswordChecklist({ password }: { password: string }) {
   return (

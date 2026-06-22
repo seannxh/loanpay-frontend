@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useAuth } from '../auth/AuthContext'
-import { useTheme } from '../theme/ThemeContext'
+import { useAuth } from '@/context/AuthContext'
+import { useTheme } from '@/context/ThemeContext'
 import { Chevron, Moon, Sun } from './icons'
 
 export function UserMenu() {

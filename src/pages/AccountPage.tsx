@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import { changePassword, getProfile, sendTestReminder } from '../api'
-import { useAuth } from '../auth/AuthContext'
-import { useApiError } from '../useApiError'
-import { ErrorBanner } from '../components/ErrorBanner'
-import { PasswordChecklist } from '../components/PasswordChecklist'
-import { passwordValid } from '../password'
-import { formatDate } from '../format'
-import type { UserProfile } from '../types'
+import { changePassword, getProfile, sendTestReminder } from '@/api/client'
+import { useAuth } from '@/context/AuthContext'
+import { useApiError } from '@/hooks/useApiError'
+import { ErrorBanner } from '@/components/ErrorBanner'
+import { PasswordChecklist } from '@/components/PasswordChecklist'
+import { passwordValid } from '@/lib/password'
+import { formatDate } from '@/lib/format'
+import type { UserProfile } from '@/types'
 
 export function AccountPage() {
   const { logout } = useAuth()

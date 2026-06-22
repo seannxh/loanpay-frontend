@@ -1,6 +1,6 @@
 import { StatusBadge } from './StatusBadge'
-import { money, formatDate } from '../format'
-import type { Installment } from '../types'
+import { money, formatDate } from '@/lib/format'
+import type { Installment } from '@/types'
 
 interface Props {
   installments: Installment[]

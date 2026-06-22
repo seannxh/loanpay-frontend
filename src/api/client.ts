@@ -9,7 +9,7 @@ import type {
   LoanSummary,
   RegisterRequest,
   UserProfile,
-} from './types'
+} from '@/types'
 
 // All requests go through the Vite dev proxy (/api -> http://localhost:8080).
 const BASE = '/api'

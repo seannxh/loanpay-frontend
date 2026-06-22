@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../auth/AuthContext'
-import { useApiError } from '../useApiError'
-import { ErrorBanner } from '../components/ErrorBanner'
+import { useAuth } from '@/context/AuthContext'
+import { useApiError } from '@/hooks/useApiError'
+import { ErrorBanner } from '@/components/ErrorBanner'
 
 export function LoginPage() {
   const { login } = useAuth()

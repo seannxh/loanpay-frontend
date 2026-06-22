@@ -1,4 +1,4 @@
-import type { Money } from './types'
+import type { Money } from '@/types'
 
 const currency = new Intl.NumberFormat(undefined, {
   style: 'currency',

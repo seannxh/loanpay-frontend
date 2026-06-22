@@ -6,9 +6,9 @@ import {
   useState,
   type ReactNode,
 } from 'react'
-import * as api from '../api'
-import { tokenStore } from '../api'
-import type { AuthResponse, RegisterRequest } from '../types'
+import * as api from '@/api/client'
+import { tokenStore } from '@/api/client'
+import type { AuthResponse, RegisterRequest } from '@/types'
 
 const USERNAME_KEY = 'loanpay.username'
 
