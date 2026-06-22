@@ -1,0 +1,102 @@
+:root {
+  /* Light theme (matches the mockup) */
+  --bg-page: #f1f6f3;
+  --bg: #ffffff;
+  --panel: #e9f3ee;
+  --text: #5f6b66;
+  --text-h: #0a0f0c;
+  --border: #e3eae6;
+  --code-bg: #eef3f0;
+
+  --accent: #0e9f6e;
+  --accent-strong: #0b8457;
+  --accent-bg: rgba(14, 159, 110, 0.1);
+  --accent-border: rgba(14, 159, 110, 0.35);
+  --social-bg: rgba(233, 243, 238, 0.6);
+
+  --grad: linear-gradient(135deg, #12b886 0%, #0e8f6e 55%, #0c7d72 100%);
+  --shadow:
+    rgba(16, 40, 30, 0.06) 0 10px 28px -10px, rgba(16, 40, 30, 0.04) 0 2px 6px -2px;
+  --radius: 16px;
+
+  --sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 17px/150% var(--sans);
+  color-scheme: light;
+  color: var(--text);
+  background: var(--bg-page);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+html[data-theme='dark'] {
+  --bg-page: #0f1512;
+  --bg: #161d19;
+  --panel: #1b2620;
+  --text: #9fb0a7;
+  --text-h: #ecf3ef;
+  --border: #25302b;
+  --code-bg: #1b2620;
+
+  --accent: #2dd4a0;
+  --accent-strong: #34e0aa;
+  --accent-bg: rgba(45, 212, 160, 0.14);
+  --accent-border: rgba(45, 212, 160, 0.4);
+  --social-bg: rgba(27, 38, 32, 0.6);
+
+  --grad: linear-gradient(135deg, #16c98f 0%, #109b7a 55%, #0d8a7c 100%);
+  --shadow:
+    rgba(0, 0, 0, 0.45) 0 10px 28px -10px, rgba(0, 0, 0, 0.3) 0 2px 6px -2px;
+  color-scheme: dark;
+}
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-page);
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  color: var(--text-h);
+}
+
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  border-radius: 4px;
+  color: var(--text-h);
+  padding: 2px 6px;
+  background: var(--code-bg);
+}
